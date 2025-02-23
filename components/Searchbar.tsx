@@ -17,7 +17,7 @@ const Searchbar = () => {
         if(debouncedValue) {
             router.push(`/discover?search=${search}`)
         } else if (!debouncedValue && pathname === '/discover') router.push('/discover')
-    }, [router, pathname, debouncedValue])
+    }, [router, pathname, debouncedValue, search])
 
   return (
     <div className='relative mt-8 block'>

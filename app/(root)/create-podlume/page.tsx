@@ -7,8 +7,7 @@ import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import {
   Form,
-  FormControl,
-  FormDescription,
+  FormControl,  
   FormField,
   FormItem,
   FormLabel,
@@ -81,6 +80,7 @@ const CreatePodlume = () => {
         setIsSubmitting(false);
         throw new Error('Please generate audio and image');
       }
+       // eslint-disable-next-line @typescript-eslint/no-unused-vars
        const podlume = await createPodlume({
         podlumeTitle: data.podlumeTitle,
         podlumeDescription: data.podlumeDescription,
