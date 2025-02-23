@@ -6,11 +6,9 @@ import PodlumeCard from '@/components/PodlumeCard';
 import Searchbar from '@/components/Searchbar';
 import { api } from '@/convex/_generated/api';
 import { useQuery } from 'convex/react';
-import { useSearchParams } from "next/navigation";
 
-const Discover = () => {
-  const searchParams = useSearchParams(); 
-  const search = searchParams.get("search") || ""; // Ensure it's treated as a string
+const Discover = ({ searchParams }: { searchParams: { search?: string } }) => {
+  const search = searchParams?.search || "";  
   
   const podlumeData = useQuery(api.podlume.getPodlumeBySearch, { search });
 
@@ -41,7 +39,7 @@ const Discover = () => {
         ) : <LoaderSpinner/>}
       </div>      
     </div>    
-  )
-}
+  );
+};
 
-export default Discover
+export default Discover;
